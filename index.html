@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Battle Arena — A* + Quick Sort</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">AI / DAA LAB</div>
+        <h1>AI BATTLE <span>ARENA</span></h1>
+      </div>
+      <div class="top-controls">
+        <label>Difficulty
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <button id="newGame" class="primary">NEW MATCH</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="game-card">
+        <div class="arena-head">
+          <div>
+            <div class="status-line"><span id="statusDot"></span><span id="status">SYSTEM READY</span></div>
+            <p>Move with <b>WASD</b> / <b>Arrow Keys</b>. Collect items and survive the AI.</p>
+          </div>
+          <div class="legend">
+            <span><i class="player-dot"></i> YOU</span>
+            <span><i class="enemy-dot"></i> AI</span>
+            <span><i class="path-dot"></i> A* PATH</span>
+          </div>
+        </div>
+        <div id="arena" class="arena"></div>
+        <div class="game-actions">
+          <button id="pauseBtn">PAUSE AI</button>
+          <button id="showPathBtn">SHOW A* PATH</button>
+          <button id="scanBtn">RUN QUICK SORT</button>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel player-panel">
+          <div class="panel-title">PLAYER CORE <span id="playerHealthText">100%</span></div>
+          <div class="healthbar"><div id="playerHealth" class="fill player-fill"></div></div>
+          <div class="stats-grid">
+            <div><small>SCORE</small><strong id="score">0</strong></div>
+            <div><small>ROUND</small><strong id="round">01</strong></div>
+            <div><small>ITEMS</small><strong id="items">0</strong></div>
+            <div><small>TIME</small><strong id="time">00:00</strong></div>
+          </div>
+        </section>
+
+        <section class="panel ai-panel">
+          <div class="panel-title">AI COMMAND CORE <span class="pulse">● LIVE</span></div>
+          <div class="ai-state" id="aiState">CALIBRATING...</div>
+          <div class="metric"><span>A* nodes explored</span><b id="nodes">0</b></div>
+          <div class="metric"><span>Path length</span><b id="pathLength">—</b></div>
+          <div class="metric"><span>Heuristic h(n)</span><b id="heuristic">—</b></div>
+          <div class="metric"><span>f(n) = g + h</span><b id="fscore">—</b></div>
+        </section>
+
+        <section class="panel target-panel">
+          <div class="panel-title">
+            QUICK SORT
+            <span class="pulse">DAA</span>
+          </div>
+          <p class="muted">
+            Sort nearby targets by priority using the Quick Sort algorithm.
+          </p>
+          <div id="targets" class="target-list"></div>
+          <div class="complexity">
+            <span>Average complexity</span>
+            <b>O(n log n)</b>
+          </div>
+          <div class="complexity">
+            <span>Worst-case complexity</span>
+            <b>O(n²)</b>
+          </div>
+        </section>
+
+        <section class="panel controls-panel">
+          <div class="panel-title">MISSION OBJECTIVE</div>
+          <div class="objective"><span>01</span> Collect energy cells</div>
+          <div class="objective"><span>02</span> Avoid the AI hunter</div>
+          <div class="objective"><span>03</span> Reach the safe zone</div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>A* SEARCH × QUICK SORT</span>
+      <span>Frontend-only interactive learning project</span>
+    </footer>
+  </div>
+  <div id="toast" class="toast"></div>
+  <div id="countdownOverlay" class="countdown-overlay">
+    <div class="countdown-box">
+      <div class="countdown-label">GET READY</div>
+      <div id="countdownNumber" class="countdown-number">3</div>
+      <div class="countdown-subtitle">AI BATTLE ARENA</div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
