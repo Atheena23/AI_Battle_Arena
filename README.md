@@ -1,54 +1,114 @@
-# AI Battle Arena — A* + Quick Select
+# AI Battle Arena — A* Search + Quick Sort
 
-A frontend-only interactive learning/game project integrating two Module 2 concepts:
+An interactive, frontend-only game that integrates two algorithmic concepts from AI/ML and Design and Analysis of Algorithms (DAA). A* Search powers intelligent enemy pathfinding, while Quick Sort prioritizes game items based on distance and item type.
 
-- **AI/ML:** A* Search
-- **DAA:** Quick Select
+## Project Links
+
+- **GitHub Repository:** https://github.com/Atheena23/AI_Battle_Arena
+- **Live Demo (Vercel):** https://arenax-chi.vercel.app/
+
+## Project Overview
+
+AI Battle Arena is a grid-based game where players navigate an arena, interact with health and weapon items, and avoid an AI-controlled enemy. The project demonstrates how pathfinding and sorting algorithms can be applied to an interactive game environment.
+
+## Subjects and Concepts
+
+### 1. AI/ML — A* Search
+
+A* Search is used to calculate a path from the enemy's position to the player's position on the grid.
+
+The algorithm uses the evaluation function:
+
+f(n)=g(n)+h(n)
+
+Where:
+
+- **\(g(n)\):** Cost from the starting node to the current node.
+- **\(h(n)\):** Estimated cost from the current node to the goal, calculated using Manhattan distance.
+- **\(f(n)\):** Estimated total cost of the path through the current node.
+
+A* uses these values to guide the enemy toward the player while finding a suitable path through the grid.
+
+**Key concepts demonstrated:**
+- Grid-based state-space representation
+- Heuristic-based search
+- Manhattan-distance heuristic
+- Pathfinding and path visualization
+- Nodes explored and path-length metrics
+
+### 2. DAA — Quick Sort
+
+Quick Sort is used to arrange game items according to their calculated priority. The priority depends on the item's distance from the player and its type.
+
+The algorithm selects a pivot and partitions the items into groups. It then recursively sorts the groups and combines them to produce a list arranged in descending order of priority.
+
+**Key concepts demonstrated:**
+- Divide-and-conquer technique
+- Pivot selection
+- Partitioning
+- Recursion and base cases
+- Priority calculation and sorting
+- Time-complexity analysis
+
+**Time complexity of Quick Sort:**
+- Best case: \(O(n\log n)\)
+- Average case: \(O(n\log n)\)
+- Worst case: \(O(n^2)\)
 
 ## Features
 
 - Interactive grid-based battle arena
-- Player movement with WASD / arrow keys
-- AI enemy pathfinding using A*
-- A* metrics: nodes explored, path length, heuristic and f(n)
-- Quick Select for choosing the K highest-priority nearby items
-- Health/weapon items
+- Player movement using WASD or arrow keys
+- AI enemy pathfinding using A* Search
+- A* metrics, including nodes explored, path length, heuristic, and \(f(n)\)
+- Health and weapon items
+- Item prioritization using Quick Sort
 - Safe-zone objective
-- Difficulty levels
-- Pause/resume AI
-- Animated path and responsive cyberpunk UI
-- No backend and no external libraries
+- Multiple difficulty levels
+- Pause and resume AI
+- Animated path visualization
+- Responsive cyberpunk-themed interface
+- Frontend-only implementation with no backend or external libraries
 
-## Run
+## Technologies Used
 
-Just open `index.html` in Chrome, Edge, or Firefox.
+- HTML5
+- CSS3
+- JavaScript
+- A* Search
+- Quick Sort
+- Git and GitHub
+- Vercel for deployment
 
-For best experience, use a local server (optional), for example VS Code Live Server.
+## How to Run Locally
 
-## How the algorithms are integrated
+1. Clone the GitHub repository or download the project ZIP.
+2. Open the project folder in Visual Studio Code.
+3. Open `index.html` in a supported browser, or use the VS Code Live Server extension.
+4. Start playing and explore the arena.
 
-### A* Search
-The AI repeatedly calculates a route from the enemy position to the player's position.
+## How the Algorithms Work Together
 
-A* uses:
+A* Search calculates a route for the AI enemy to follow, while Quick Sort organizes the available game items according to their priority scores.
 
-`f(n) = g(n) + h(n)`
+These algorithms demonstrate two different problem-solving approaches: **searching for a suitable path** and **sorting data into a meaningful order**. Together, they connect AI/ML and DAA concepts through a common game scenario.
 
-where:
-- `g(n)` = cost from the AI start position to node n
-- `h(n)` = Manhattan-distance heuristic from n to the player
-- `f(n)` = estimated total cost
+## Learning Outcomes
 
-### Quick Select
-The item scanner assigns each item a priority based on distance and item type. Quick Select partitions the item list to obtain the top K items without fully sorting the complete list.
+Through this project, the following concepts are demonstrated:
 
-Average expected time: O(n).
+1. Applying A* Search to grid-based pathfinding.
+2. Understanding heuristics and Manhattan distance.
+3. Implementing Quick Sort using divide and conquer.
+4. Calculating and comparing target priority scores.
+5. Understanding the time complexity of algorithms.
+6. Applying theoretical concepts to an interactive application.
 
-## Suggested presentation points
+## Academic Context
 
-1. Explain the state-space/grid representation.
-2. Explain why A* is suitable for shortest pathfinding.
-3. Show how Manhattan distance works as the heuristic.
-4. Explain Quick Select's partition-based selection.
-5. Demonstrate changing K and running the scanner.
-6. Compare the algorithm metrics shown in the AI Command Core.
+This micro-project integrates concepts from two subjects:
+
+- **AI/ML:** A* Search for intelligent pathfinding.
+- **Design and Analysis of Algorithms (DAA):** Quick Sort for target prioritization.
+
+The project demonstrates the practical application of these algorithms in a frontend-only interactive game.
